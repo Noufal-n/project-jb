@@ -1,0 +1,14 @@
+<link href="/stylesheets/email.css" type="text/css" rel="stylesheet">
+
+
+<h1>Send E-mail to all students</h1>
+<form method="post" action="/send/mail/">
+    <div>
+        <input class="form-check" type="text" name="subject" placeholder="subject....">
+    </div>
+    <br>
+    <br>
+    <textarea style="height: 450px; width:450px ;" placeholder="write here...." name="message"></textarea>
+    <input class="btn btn-danger" type="submit" value="send" />
+    <a class="btn btn-primary" href="/admin/panel">goback</a> 
+</form>

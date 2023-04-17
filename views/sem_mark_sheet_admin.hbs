@@ -1,0 +1,198 @@
+<link href="/stylesheets/name_selection.css" type="text/css" rel="stylesheet">
+ <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+
+{{#if subject.subjects}}
+<div class="container">
+    <h1 class="heading-lv1">{{data.course}} University Semester mark chart</h1><br>
+    <h4>Name:{{detail.name}}</h4>
+    <h4>{{subject.sem}}</h4>
+    <h4>Course:{{subject.course}}</h4>
+
+    <div class="table-app" id="product-table-app">
+
+        <!-- /.table-handler -->
+
+        <div class="table-wrapper">
+            <table class="table" id="table">
+                <thead>
+                    <tr class="table-head">
+                        <th class="table-cell align-right">Subject</th>
+                        <th class="table-cell align-right">External</th>
+                        <th class="table-cell align-right">Internal</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+
+                    <form method="post" id="marks" action="/admin/sem_mark/upload">
+                        <tr>
+
+                            <td>{{subject.sub1}} </td>
+                            <td><input id="sub1" max="80" value="{{marks.sub1}}" name="sub1" type="number"> </td>
+                            <td><input id="sub1int" max="20" value="{{marks.sub1int}}" name="sub1int" type="number">
+                            </td>
+
+
+                        </tr>
+                        <tr>
+
+                            <td>{{subject.sub2}} </td>
+                            <td><input id="sub2" max="80" value="{{marks.sub2}}" name="sub2" type="number"> </td>
+                            <td><input id="sub2int" max="20" value="{{marks.sub2int}}" name="sub2int" type="number">
+                            </td>
+
+
+                        </tr>
+                        <tr>
+
+                            <td>{{subject.sub3}} </td>
+                            <td><input id="sub3" max="80" value="{{marks.sub3}}" name="sub3" type="number"> </td>
+                            <td><input id="sub3int" max="20" value="{{marks.sub3int}}" name="sub3int" type="number">
+                            </td>
+
+                        </tr>
+                        <tr>
+
+                            <td>{{subject.sub4}} </td>
+                            <td><input id="sub4" max="80" value="{{marks.sub4}}" name="sub4" type="number"> </td>
+                            <td><input id="sub4int" max="20" value="{{marks.sub4int}}" name="sub4int" type="number">
+                            </td>
+
+                        </tr>
+                        <tr>
+
+                            <td>{{subject.sub5}} </td>
+                            <td><input id="sub5" max="80" value="{{marks.sub5}}" name="sub5" type="number"> </td>
+                            <td><input id="sub5int" max="20" value="{{marks.sub5int}}" name="sub5int" type="number">
+                            </td>
+
+                        </tr>
+                        <tr>
+
+                            <td>{{subject.sub6}} </td>
+                            <td><input id="sub6" max="80" value="{{marks.sub6}}" name="sub6" type="number"> </td>
+                            <td><input id="sub6int" max="20" value="{{marks.sub6int}}" name="sub6int" type="number">
+                            </td>
+
+                        </tr>
+
+                        <input class="btn btn-success" onclick="myfs()" type="submit" value="update" />&nbsp
+
+
+
+
+
+                </tbody>
+            </table>
+
+            <div class="mt-4 pt-2  text-center">
+
+                <label class="form-label">Percentage</label>
+
+                <input id="perc" name="percentage" readonly value="{{marks.percentage}}" type="text">
+                <label class="form-label">Total</label>
+
+                <input id="total" name="total" readonly value="{{marks.total}}" type="text">
+
+            </div>
+
+            <input type="text" name="name" hidden value="{{detail.name}}">
+            <input type="text" name="id" hidden value="{{detail.id}}">
+            <input type="text" name="course" hidden value="{{subject.course}}">
+            <input type="text" name="sem" hidden value="{{subject.sem}}">
+
+
+
+
+            <input class="btn btn-info" type="button" onclick="myfs()" value="Calculate" />
+            </form>
+
+            <input onclick="window.location.href = '/admin/panel'" value="Back" class="btn btn-primary " type="button">
+
+
+            <!-- /#no-results -->
+        </div>
+        <!-- /.table-wrapper -->
+    </div>
+    <!-- /.table-app -->
+</div>
+<!-- /.container -->
+{{/if}}
+{{#if subject.nosubjects}}
+<div style="display: flex; justify-content: center; align-items: center; height: 100vh;">
+    <p style="color: red;">Please add subjects first ⚠ <a style="color: black;" href="/admin/add_subject">click
+            here</a></p>
+</div>
+
+{{/if}}
+<script>
+
+
+    function myfs() {
+        var sub1 = document.getElementById('sub1').value
+        var sub2 = document.getElementById('sub2').value
+        var sub3 = document.getElementById('sub3').value
+        var sub4 = document.getElementById('sub4').value
+        var sub5 = document.getElementById('sub5').value
+        var sub6 = document.getElementById('sub6').value
+
+        var sub1int = document.getElementById('sub1int').value
+        var sub2int = document.getElementById('sub2int').value
+        var sub3int = document.getElementById('sub3int').value
+        var sub4int = document.getElementById('sub4int').value
+        var sub5int = document.getElementById('sub5int').value
+        var sub6int = document.getElementById('sub6int').value
+
+
+
+        let tot = parseInt(sub1) + parseInt(sub2) + parseInt(sub3) + parseInt(sub4) + parseInt(sub5) + parseInt(sub6) + parseInt(sub1int) + parseInt(sub2int) + parseInt(sub3int) + parseInt(sub4int) + parseInt(sub5int) + parseInt(sub6int)
+        document.getElementById('total').value = tot
+        document.getElementById('perc').value = (tot / 6) + "%"
+    }
+
+
+
+
+
+    $("#marks").submit((e) => {
+        e.preventDefault()
+        $.ajax({
+            url: '/admin/sem_mark/upload',
+            method: 'POST',
+            data: $('#marks').serialize(),
+            success: function (data) {
+
+                if (data.updated) {
+
+                    Toastify({
+                        text: "marke successfully added",
+                        className: "info",
+                        duration: 5000,
+                        close: true,
+                        gravity: "top", // `top` or `bottom`
+                        position: "right", // `left`, `center` or `right`
+                        stopOnFocus: true, // Prevents dismissing of toast on hover
+                        style: {
+                            background: "linear-gradient(to right, #00e64d, #00e64d)",
+                        }
+                    })
+                        .showToast();
+                         setTimeout(() => {
+                            location.reload();
+                        }, 4000);
+                }
+
+            }
+
+        })
+
+
+    })
+
+
+
+
+
+
+</script>

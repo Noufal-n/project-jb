@@ -1,0 +1,29 @@
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:400,800);
+body {
+  background-color: teal;
+  color: white;
+  font-family: "Open Sans", sans-serif;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 0 24px;
+}
+.text-box {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 16px;
+  border: 1px dashed white;
+  box-sizing: border-box;
+}
+h1 {
+  text-align: center;
+  text-transform: uppercase;
+  font-weight: 900;
+  margin-bottom: 12px;
+  margin-top: 0;
+}
+.text-box p {
+  margin: 0;
+}

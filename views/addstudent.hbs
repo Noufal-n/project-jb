@@ -1,0 +1,162 @@
+<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+
+
+
+{{#if status}}
+
+
+
+<script>
+  Toastify({
+    text: "mobile number submited",
+    className: "info",
+    duration: 8000,
+    close: true,
+    gravity: "top", // `top` or `bottom`
+    position: "right", // `left`, `center` or `right`
+    stopOnFocus: true, // Prevents dismissing of toast on hover
+    style: {
+      background: "linear-gradient(to right, #091991,#091991)",
+    }
+  })
+
+
+
+    .showToast();
+</script>
+
+{{/if}}
+
+{{#if codeexisted}}
+
+
+
+<script>
+  Toastify({
+    text: "this mobile number is alredy in database ",
+    className: "info",
+    duration: 8000,
+    close: true,
+    gravity: "top", // `top` or `bottom`
+    position: "right", // `left`, `center` or `right`
+    stopOnFocus: true, // Prevents dismissing of toast on hover
+    style: {
+      background: "linear-gradient(to right, #FF0000, #FF0000)",
+    }
+  })
+
+
+
+    .showToast();
+</script>
+
+{{/if}}
+
+
+
+
+<!-- Favicon -->
+<link rel="icon" type="image/x-icon" href="/assets/img/favicon/favicon.ico" />
+
+<!-- Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link
+  href="https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap"
+  rel="stylesheet" />
+
+<!-- Icons. Uncomment required icon fonts -->
+<link rel="stylesheet" href="/assets/vendor/fonts/boxicons.css" />
+
+<!-- Core CSS -->
+<link rel="stylesheet" href="/assets/vendor/css/core.css" class="template-customizer-core-css" />
+<link rel="stylesheet" href="/assets/vendor/css/theme-default.css" class="template-customizer-theme-css" />
+<link rel="stylesheet" href="/assets/css/demo.css" />
+
+<!-- Vendors CSS -->
+<link rel="stylesheet" href="/assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.css" />
+
+<!-- Page CSS -->
+<!-- Page -->
+<link rel="stylesheet" href="/assets/vendor/css/pages/page-auth.css" />
+<!-- Helpers -->
+<script src="/assets/vendor/js/helpers.js"></script>
+
+<!--! Template customizer & Theme config files MUST be included after core stylesheets and helpers.js in the <head> section -->
+<!--? Config:  Mandatory theme config file contain global vars & default theme options, Set your preferred theme option in this file.  -->
+<script src="/assets/js/config.js"></script>
+</head>
+
+<body>
+  <!-- Content -->
+
+  <div class="container-xxl">
+    <div class="authentication-wrapper authentication-basic container-p-y">
+      <div class="authentication-inner">
+        <!-- Register Card -->
+        <div class="card">
+          <div class="card-body">
+            <!-- Logo -->
+            <span class="app-brand-text demo text-body fw-bolder">add students</span>
+
+            <form id="formAuthentication" class="mb-3" action="/add/student/database/" method="POST">
+
+              <span id="passwordHelpInline" class="form-text">
+                Students can only create their Account if their phone number is added by the HOD<br>This number will be
+                validate at signup!
+              </span>
+              <div class="mb-3">
+                <label for="email" class="form-label">Mobile number</label>
+                <input type="number" required class="form-control" name="code"
+                  placeholder="Enter Student mobile number" />
+              </div>
+
+
+
+
+
+          </div>
+
+
+
+          <button class="btn btn-success d-grid w-100">ADD Number</button><br>
+          <a href="/admin/panel" class="btn btn-primary d-grid w-100">Back</a>
+          </form>
+
+
+        </div>
+      </div>
+      <!-- Register Card -->
+    </div>
+  </div>
+  </div>
+
+  <!-- / Content -->
+
+
+  <!-- Core JS -->
+  <!-- build:js assets/vendor/js/core.js -->
+  <script src="/assets/vendor/libs/jquery/jquery.js"></script>
+  <script src="/assets/vendor/libs/popper/popper.js"></script>
+  <script src="/assets/vendor/js/bootstrap.js"></script>
+  <script src="/assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.js"></script>
+
+  <script src="/assets/vendor/js/menu.js"></script>
+  <!-- endbuild -->
+
+  <!-- Vendors JS -->
+
+  <!-- Main JS -->
+  <script src="/assets/js/main.js"></script>
+
+  <!-- Page JS -->
+
+ 
+
+
+  <!-- Place this tag in your head or just before your close body tag. -->
+  <script async defer src="https://buttons.github.io/buttons.js"></script>
+</body>
+
+</html>

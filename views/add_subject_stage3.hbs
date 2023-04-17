@@ -1,0 +1,114 @@
+<div class="container py-5 h-100">
+    <div class="row justify-content-center align-items-center h-100">
+        <div class="col-12 col-lg-9 col-xl-7">
+            <div class="card shadow-2-strong card-registration" style="border-radius: 15px;">
+                <div class="card-body p-4 p-md-5">
+                    <h3 class="mb-4 pb-2 pb-md-0 mb-md-5">{{course}} {{sem}}</h3>
+
+                    <form action="/admin/add_subject" method="post">
+
+
+
+
+
+
+
+
+
+
+
+                        <div class="row">
+                            <div class="col-md-6 mb-4">
+
+                                <div class="form-outline">
+                                    <input type="text" value="{{data.sub1}}" required name="sub1"
+                                        class="form-control form-control-lg" />
+                                    <label class="form-label">Subject 1</label>
+                                </div>
+
+                            </div>
+                            <div class="col-md-6 mb-4">
+
+                                <div class="form-outline">
+                                    <input type="text" value="{{data.sub2}}" required name="sub2"
+                                        class="form-control form-control-lg" />
+                                    <label class="form-label">Subject 2</label>
+                                </div>
+
+                            </div>
+                        </div>
+                        <input type="text" name="course" hidden value="{{course}}">
+                        <input type="text" name="sem" hidden value="{{sem}}">
+
+
+
+
+
+                        <div class="row">
+                            <div class="col-md-6 mb-4">
+
+                                <div class="form-outline">
+                                    <input type="text" required value="{{data.sub3}}" name="sub3"
+                                        class="form-control form-control-lg" />
+                                    <label class="form-label">Subject 3</label>
+                                </div>
+
+                            </div>
+                            <div class="col-md-6 mb-4">
+
+                                <div class="form-outline">
+                                    <input type="text" required value="{{data.sub4}}" name="sub4"
+                                        class="form-control form-control-lg" />
+                                    <label class="form-label">Subject 4</label>
+                                </div>
+
+                            </div>
+                        </div>
+
+
+
+
+
+                        <div class="row">
+                            <div class="col-md-6 mb-4">
+
+                                <div class="form-outline">
+                                    <input type="text" required value="{{data.sub5}}" name="sub5"
+                                        class="form-control form-control-lg" />
+                                    <label class="form-label">Subject 5</label>
+                                </div>
+
+                            </div>
+                            <div class="col-md-6 mb-4">
+
+                                <div class="form-outline">
+                                    <input type="text" required value="{{data.sub6}}" name="sub6"
+                                        class="form-control form-control-lg" />
+                                    <label class="form-label">Subject 6</label>
+                                </div>
+
+                            </div>
+                        </div>
+                </div>
+
+
+            </div>
+
+
+
+
+            <div class="mt-4 pt-2 text-center">
+
+                <input class="btn btn-primary btn-lg" type="submit" value="Submit">
+                <input class="btn btn-primary btn-lg" type="reset">
+                <input onclick="window.location.href = '/admin/add_subject'" value="Back" class="btn btn-primary btn-lg" type="button" >
+
+            </div>
+
+
+            </form>
+        </div>
+    </div>
+</div>
+</div>
+</div>

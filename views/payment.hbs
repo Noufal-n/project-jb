@@ -1,0 +1,309 @@
+<link href="/stylesheets/payment.css" type="text/css" rel="stylesheet">
+<script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+
+
+
+
+<nav class="navbar navbar-expand-lg navbar-light" style="background-color: #e3f2fd;">
+  <div class="container-fluid">
+
+
+
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    &nbsp&nbsp&nbsp &nbsp&nbsp&nbsp &nbsp&nbsp&nbsp &nbsp&nbsp&nbsp &nbsp&nbsp&nbsp
+    <div class="collapse navbar-collapse" style="background-color: #e3f2fd;height:60px;" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="navbar-nav me-auto mb-2 mb-lg-0">
+
+          <a class="nav-link fs-6 text" aria-current="page" href="/profile">
+            <script src="https://cdn.lordicon.com/xdjxvujz.js"></script>
+            <lord-icon src="https://cdn.lordicon.com/gmzxduhd.json" trigger="hover" style="width:40px;height:40px;">
+            </lord-icon>
+            Home
+          </a>
+        </li>
+        &nbsp&nbsp&nbsp
+        <li class="nav-item">
+          <a class="nav-link fs-6 text" href="/payment/{{details._id}}">
+            <script src="https://cdn.lordicon.com/xdjxvujz.js"></script>
+            <lord-icon src="https://cdn.lordicon.com/uqpazftn.json" trigger="hover" style="width:50px;height:50px">
+            </lord-icon>Payfee
+          </a>
+
+        </li>
+
+        &nbsp&nbsp&nbsp
+
+        <li class="nav-item">
+          <a class="nav-link fs-6 text" href="/fee_history/{{details._id}}/{{details.course}}">
+            <script src="https://cdn.lordicon.com/xdjxvujz.js"></script>
+            <lord-icon src="https://cdn.lordicon.com/nocovwne.json" trigger="hover" style="width:40px;height:40px">
+            </lord-icon>Histroy
+          </a>
+        </li>
+        &nbsp&nbsp&nbsp
+        <li class="nav-item dropdown">
+          <a data-bs-toggle="dropdown" role="button" id="navbarDropdown" class="nav-link dropdown-toggle fs-6 text"
+            href="">
+            <script src="https://cdn.lordicon.com/xdjxvujz.js"></script>
+            <lord-icon src="https://cdn.lordicon.com/dxjqoygy.json" trigger="hover"
+              colors="primary:#121331,secondary:#08a88a" stroke="65" state="hover-looking-around"
+              style="width:40px;height:40px">
+            </lord-icon>Profile
+          </a>
+          &nbsp&nbsp&nbsp
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <li><a class="dropdown-item" href="/change_password/{{details._id}}">
+                <script src="https://cdn.lordicon.com/xdjxvujz.js"></script>
+                <lord-icon src="https://cdn.lordicon.com/ugbgnnqc.json" trigger="hover" style="width:30px;height:30px">
+                </lord-icon>password change
+              </a></li>
+
+            <li><a class="dropdown-item" href="/edit_profile/{{details._id}}">
+                <script src="https://cdn.lordicon.com/xdjxvujz.js"></script>
+                <lord-icon src="https://cdn.lordicon.com/puvaffet.json" trigger="hover" style="width:30px;height:30px">
+                </lord-icon>Edit profile
+              </a></li>
+          </ul>
+        </li>
+
+
+        &nbsp&nbsp&nbsp
+        <li class="nav-item">
+          <a class="nav-link fs-6 text" href="/logout">
+            <script src="https://cdn.lordicon.com/xdjxvujz.js"></script>
+            <lord-icon src="https://cdn.lordicon.com/gkditgni.json" trigger="hover" style="width:30px;height:30px">
+            </lord-icon>Log out
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+
+
+
+
+<div id="log-in">
+  <div id="mexican-wave"></div>
+  <form class="login-form" id="pay" action="/requesting_payment/{{details._id}}" method="post">
+    <h1 class="login-heading">Fee box</h1>
+    <p class="login-copy">you can pay your college fee through this</p>
+
+    <div class="field-container -password">
+      <input type="text" id="course" hidden value="{{details.course}}" name="course">
+      <input type="text" id="name" hidden value="{{details.firstName}}{{details.lastName}}" name="name">
+      <input type="text" id="email" hidden value="{{details.email}}" name="email">
+      <input type="text" id="startyear" hidden value="{{details.startyear}}" name="startyear">
+
+      <input type="text" hidden value="{{details._id}}" name="id">
+      <label for="demo">Amount</label>
+      <input type="number" name="amount" required id="fee" />
+    </div>
+    <button type="submit" id="rzp-button1" class="btn btn-primary btn-center log-in-button">PAY</button>
+
+  </form>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+{{!--
+
+<div id="round" class="card rounded  align-items-center mx-auto mt-5 mb-5" style="width:25%">
+  <br>
+  <br>
+  <form id="pay" action="/requesting_payment/{{details._id}}" method="post">
+    <!-- Name input -->
+
+
+    <!-- Email input -->
+    <div class="form-outline mb-4">
+      <input type="number" name="amount" required id="fee" class="form-control" />
+      <label class="form-label">Amount</label>
+      <input type="text" id="course" hidden value="{{details.course}}" name="course">
+      <input type="text" hidden value="{{details._id}}" name="id">
+    </div>
+
+    <!-- Checkbox -->
+    <div class="form-check d-flex justify-content-center mb-4">
+      <input class="form-check-input me-2" type="checkbox" value="" id="form5Example3" checked />
+      <label class="form-check-label" for="form5Example3">
+        I have read and agree to the terms
+      </label>
+    </div>
+
+    <div class="col-md-12 text-center">
+      <button type="submit" id="rzp-button1" class="btn btn-primary btn-center btn-block mb-4">Payfee</button>
+
+    </div>
+  </form>
+</div> --}}
+
+
+
+
+
+
+
+
+<script>
+
+  window.onload = function () {
+    setTimeout(showLoader, 1000); // show loader after 1 second delay
+    setTimeout(hideLoader, 1000); // hide loader after 3 second delay
+  }
+
+  function showLoader() {
+    document.getElementById("mexican-wave").style.display = "block";
+  }
+
+  function hideLoader() {
+    document.getElementById("mexican-wave").style.display = "none";
+  }
+
+
+
+  $('input').focus(function () {
+    var input = $(this);
+    input.closest('.field-container').addClass('-focused');
+  });
+
+  $('input').blur(function () {
+    var input = $(this);
+    if (input.val().length === 0) {
+      input.closest('.field-container').removeClass('-focused');
+    }
+  });
+
+  $("#pay").submit((e) => {
+    e.preventDefault()
+    $.ajax({
+      url: '/requesting_payment/',
+      method: 'post',
+      data: $('#pay').serialize(),
+      success: (response) => {
+
+
+        onlinepay(response)
+
+
+      }
+    })
+  })
+
+
+
+
+
+  function onlinepay(order) {
+    var options = {
+
+      "key": "rzp_test_tDTQ9r7EYTZQwZ", // Enter the Key ID generated from the Dashboard
+      "amount": order.amount, // Amount is in currency subunits. Default currency is INR. Hence, 50000 refers to 50000 paise
+      "currency": "INR",
+      "name": "jai-bharath",
+      "description": "Test Transaction",
+      "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTzpewoU8nRxfJFWUR8ybhp_uEscXtOCSGL3A&usqp=CAU",
+      "order_id": order.id, //This is a sample Order ID. Pass the `id` obtained in the response of Step 1
+      "handler": function (response) {
+
+        verifypayment(response, order)
+
+
+      },
+      "prefill": {
+
+        "name": order.name,
+        "email": order.email,
+        "contact": order.mobile,
+      }
+      ,
+      "notes": {
+        "address": "Razorpay Corporate Office"
+      },
+      "theme": {
+        "color": "#3399cc"
+      }
+    };
+    var rzp1 = new Razorpay(options);
+    rzp1.open();
+  }
+
+
+
+
+
+
+  function verifypayment(payment, order) {
+    var course = document.getElementById("course").value;
+    var email = document.getElementById("email").value;
+    var name = document.getElementById("name").value;
+    var startyear = document.getElementById("startyear").value;
+    $.ajax({
+
+      url: '/verify-payment/response',
+      method: 'post',
+      data: {
+
+        payment,
+        order,
+        name,
+        email,
+        course,
+        startyear
+      },
+      success: (response) => {
+
+
+        done(response)
+
+      }
+
+
+    })
+  }
+  function done(res) {
+
+    if (res.status) {
+
+
+      // alert("payment is sucessfull")
+      Toastify({
+        text: "payment is sucessfull ! check history",
+        className: "info",
+        duration: 5000,
+        close: true,
+        gravity: "top", // `top` or `bottom`
+        position: "right", // `left`, `center` or `right`
+        stopOnFocus: true, // Prevents dismissing of toast on hover
+        style: {
+          background: "linear-gradient(to right, #c8cfd0, #9da2a2)",
+        }
+      }).showToast();
+      //var msg = document.getElementById('msg');
+      //msg.innerHTML = "Payment success";
+
+    }
+  }
+
+
+
+</script>

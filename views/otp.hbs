@@ -1,0 +1,28 @@
+<link href="/stylesheets/otp.css" type="text/css" rel="stylesheet">
+<div class="container">
+  <h3 class="title">OTP Verification</h3>
+  <p class="sub-title">
+    Enter the OTP you received to
+
+    <span class="phone-number">{{details.mail}}</span>
+  </p>
+  {{#if invalidotp}}
+
+	<p class="erroe" style="color:red">please enter valid OTP </p>
+
+	{{/if}}
+  {{#if otptimeout}}
+
+	<p class="erroe" style="color:red"> OTP expired </p>
+
+	{{/if}}
+  <div class="wrapper">
+    <form action="otp-send" method="post">
+      <input name="otp" class="form-control" type="text"  required maxlength="5"><br>
+      <button  class="btn btn-center btn-primary" type="submit">submit</button>
+
+    </form>
+
+  </div>
+  
+</div>

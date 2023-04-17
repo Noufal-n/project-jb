@@ -1,0 +1,263 @@
+<link href="/stylesheets/semmarksheet.css" type="text/css" rel="stylesheet">
+
+
+
+<nav class="navbar navbar-expand-lg navbar-light" style="background-color:  #f8f9fa;">
+    <div class="container-fluid">
+
+
+
+
+
+
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div id="loader"></div>
+
+        &nbsp&nbsp&nbsp &nbsp&nbsp&nbsp &nbsp&nbsp&nbsp &nbsp&nbsp&nbsp &nbsp&nbsp&nbsp
+        <div class="collapse navbar-collapse" style="background-color:  #f8f9fa;height:60px;"
+            id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="navbar-nav me-auto mb-2 mb-lg-0">
+
+                    <a class="nav-link fs-6 text" aria-current="page" href="/profile">
+                        <script src="https://cdn.lordicon.com/xdjxvujz.js"></script>
+                        <lord-icon src="https://cdn.lordicon.com/gmzxduhd.json" trigger="hover"
+                            style="width:40px;height:40px;">
+                        </lord-icon>
+                        Home
+                    </a>
+                </li>
+                &nbsp&nbsp&nbsp
+                <li class="nav-item">
+                    <a class="nav-link fs-6 text" href="/payment/{{user._id}}">
+                        <script src="https://cdn.lordicon.com/xdjxvujz.js"></script>
+                        <lord-icon src="https://cdn.lordicon.com/uqpazftn.json" trigger="hover"
+                            style="width:50px;height:50px">
+                        </lord-icon>Payfee
+                    </a>
+
+                </li>
+
+                &nbsp&nbsp&nbsp
+
+                <li class="nav-item">
+                    <a class="nav-link fs-6 text" href="/fee_history/{{user._id}}/{{user.course}}">
+                        <script src="https://cdn.lordicon.com/xdjxvujz.js"></script>
+                        <lord-icon src="https://cdn.lordicon.com/nocovwne.json" trigger="hover"
+                            style="width:40px;height:40px">
+                        </lord-icon>Histroy
+                    </a>
+                </li>
+                &nbsp&nbsp&nbsp
+                <li class="nav-item dropdown">
+                    <a data-bs-toggle="dropdown" role="button" id="navbarDropdown"
+                        class="nav-link dropdown-toggle fs-6 text" href="">
+                        <script src="https://cdn.lordicon.com/xdjxvujz.js"></script>
+                        <lord-icon src="https://cdn.lordicon.com/dxjqoygy.json" trigger="hover"
+                            colors="primary:#121331,secondary:#08a88a" stroke="65" state="hover-looking-around"
+                            style="width:40px;height:40px">
+                        </lord-icon>Profile
+                    </a>
+                    &nbsp&nbsp&nbsp
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <li><a class="dropdown-item" href="/change_password/{{user._id}}">
+                                <script src="https://cdn.lordicon.com/xdjxvujz.js"></script>
+                                <lord-icon src="https://cdn.lordicon.com/ugbgnnqc.json" trigger="hover"
+                                    style="width:30px;height:30px">
+                                </lord-icon>password change
+                            </a></li>
+
+                        <li><a class="dropdown-item" href="/edit_profile/{{user._id}}">
+                                <script src="https://cdn.lordicon.com/xdjxvujz.js"></script>
+                                <lord-icon src="https://cdn.lordicon.com/puvaffet.json" trigger="hover"
+                                    style="width:30px;height:30px">
+                                </lord-icon>Edit profile
+                            </a></li>
+                    </ul>
+                </li>
+                &nbsp&nbsp&nbsp
+                {{!-- <li class="nav-item">
+                    <a class="fs-6 text nav-link" href="/attendance/{{user._id}}">
+                        <script src="https://cdn.lordicon.com/xdjxvujz.js"></script>
+                        <lord-icon src="https://cdn.lordicon.com/yyecauzv.json" trigger="hover"
+                            style="width:40px;height:40px">
+                        </lord-icon>Attendance
+                    </a>
+
+                </li> --}}
+
+                &nbsp&nbsp&nbsp
+
+                <li class="nav-item dropdown">
+                    <a data-bs-toggle="dropdown" role="button" id="navbarDropdown"
+                        class="nav-link dropdown-toggle fs-6 text" href="">
+
+                        <script src="https://cdn.lordicon.com/ritcuqlt.js"></script>
+                        <lord-icon src="https://cdn.lordicon.com/jvucoldz.json" trigger="hover"
+                            style="width:40px;height:40px">
+                        </lord-icon>Marks
+
+                    </a>
+                    &nbsp&nbsp&nbsp
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <li><a class="dropdown-item" href="/sem_marks/{{user._id}}/sem1/{{user.course}}">
+                                Semester 1
+                            </a></li>
+
+                        <li><a class="dropdown-item" href="/sem_marks/{{user._id}}/sem2/{{user.course}}">
+                                Semester 2
+                            </a></li>
+                        <li><a class="dropdown-item" href="/sem_marks/{{user._id}}/sem3/{{user.course}}">
+                                Semester 3
+                            </a></li>
+                        <li><a class="dropdown-item" href="/sem_marks/{{user._id}}/sem4/{{user.course}}">
+                                Semester 4
+                            </a></li>
+                        <li><a class="dropdown-item" href="/sem_marks/{{user._id}}/sem5/{{user.course}}">
+                                Semester 5
+                            </a></li>
+                        <li><a class="dropdown-item" href="/sem_marks/{{user._id}}/sem6/{{user.course}}">
+                                Semester 6
+                            </a></li>
+
+
+
+                    </ul>
+                </li>
+
+
+
+
+
+
+                &nbsp&nbsp&nbsp
+                <li class="nav-item">
+                    <a class="nav-link fs-6 text" href="/payment/{{user._id}}">
+                        <script src="https://cdn.lordicon.com/xdjxvujz.js"></script>
+                        <lord-icon src="https://cdn.lordicon.com/psnhyobz.json" style="width:35px;height: 35px;">
+                        </lord-icon>Notification
+                    </a>
+
+                </li>
+
+
+                &nbsp&nbsp&nbsp
+                <li class="nav-item">
+                    <a class="nav-link fs-6 text" href="/logout">
+                        <script src="https://cdn.lordicon.com/xdjxvujz.js"></script>
+                        <lord-icon src="https://cdn.lordicon.com/gkditgni.json" trigger="hover"
+                            style="width:35px;height:35px">
+                        </lord-icon>Log out
+                    </a>
+                </li>
+
+
+
+            </ul>
+        </div>
+    </div>
+</nav>
+
+
+
+
+
+{{#if marks.status}}
+
+<h4><span class="blue"> <span style="color: aliceblue;">{{data.sem}} University Mark sheet</pan>
+</h4>
+{{!-- <h2>Created with love by <a href="https://github.com/pablorgarcia" target="_blank">Pablo García</a></h2> --}}
+
+<table class="container">
+	<thead>
+		<tr>
+			<th>
+				<h1>Subject</h1>
+			</th>
+			<th>
+				<h1>External</h1>
+			</th>
+			<th>
+				<h1>Internal</h1>
+			</th>
+			
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td>{{subject.sub1}}</td>
+			<td>{{marks.sub1}}</td>
+			<td>{{marks.sub1int}}</td>
+
+		</tr>
+		<tr>
+			<td>{{subject.sub2}}</td>
+			<td>{{marks.sub2}}</td>
+			<td>{{marks.sub2int}}</td>
+
+
+
+		</tr>
+		<tr>
+			<td>{{subject.sub3}}</td>
+			<td>{{marks.sub3}}</td>
+			<td>{{marks.sub3int}}</td>
+
+
+		</tr>
+		<tr>
+			<td>{{subject.sub4}}</td>
+			<td>{{marks.sub4}}</td>
+			<td>{{marks.sub4int}}</td>
+
+
+		</tr>
+		<tr>
+			<td>{{subject.sub5}}</td>
+			<td>{{marks.sub5}}</td>
+			<td>{{marks.sub5int}}</td>
+
+
+		</tr>
+		<tr>
+			<td>{{subject.sub6}}</td>
+			<td>{{marks.sub6}}</td>
+			<td>{{marks.sub6int}}</td>
+
+
+		</tr>
+	</tbody>
+
+</table>
+
+
+<div class="mt-4 pt-2  text-center">
+
+	<label class="form-label">Percentage: {{marks.percentage}}</label>
+	<br>
+	<label class="form-label">Total marks: {{marks.total}}</label>
+
+
+</div>
+{{/if}}
+{{#if marks.nomarks}}
+<div style="display: flex; justify-content: center; align-items: center; height: 100vh;">
+  <p style="color: red;">Warning: Your marks are not uploaded yet!!!</p>
+</div>
+{{/if}}
+<script>
+
+	window.onload = function () {
+		results(mark);
+	};
+	results(data){
+
+		console.log(data)
+
+	}
+
+
+</script>

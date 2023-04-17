@@ -1,0 +1,146 @@
+<link href="/stylesheets/feeshistory.css" type="text/css" rel="stylesheet">
+<nav class="navbar navbar-expand-lg navbar-light" style="background-color: #e3f2fd;">
+    <div class="container-fluid">
+
+        
+
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        &nbsp&nbsp&nbsp &nbsp&nbsp&nbsp &nbsp&nbsp&nbsp &nbsp&nbsp&nbsp &nbsp&nbsp&nbsp
+        <div class="collapse navbar-collapse" style="background-color: #e3f2fd;height:60px;" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="navbar-nav me-auto mb-2 mb-lg-0">
+
+                    <a class="nav-link fs-6 text" aria-current="page" href="/profile">
+                        <script src="https://cdn.lordicon.com/xdjxvujz.js"></script>
+                        <lord-icon src="https://cdn.lordicon.com/gmzxduhd.json" trigger="hover"
+                            style="width:40px;height:40px;">
+                        </lord-icon>
+                        Home
+                    </a>
+                </li>
+                &nbsp&nbsp&nbsp
+                <li class="nav-item">
+                    <a class="nav-link fs-6 text" href="/payment/{{user._id}}">
+                        <script src="https://cdn.lordicon.com/xdjxvujz.js"></script>
+                        <lord-icon src="https://cdn.lordicon.com/uqpazftn.json" trigger="hover"
+                            style="width:50px;height:50px">
+                        </lord-icon>Payfee
+                    </a>
+
+                </li>
+
+                &nbsp&nbsp&nbsp
+
+                <li class="nav-item">
+                    <a class="nav-link fs-6 text" href="/fee_history/{{user._id}}/{{user.course}}">
+                        <script src="https://cdn.lordicon.com/xdjxvujz.js"></script>
+                        <lord-icon src="https://cdn.lordicon.com/nocovwne.json" trigger="hover"
+                            style="width:40px;height:40px">
+                        </lord-icon>Histroy
+                    </a>
+                </li>
+                &nbsp&nbsp&nbsp
+                <li class="nav-item dropdown">
+                    <a data-bs-toggle="dropdown" role="button" id="navbarDropdown"
+                        class="nav-link dropdown-toggle fs-6 text" href="/profile">
+                        <script src="https://cdn.lordicon.com/xdjxvujz.js"></script>
+                        <lord-icon src="https://cdn.lordicon.com/dxjqoygy.json" trigger="hover"
+                            colors="primary:#121331,secondary:#08a88a" stroke="65" state="hover-looking-around"
+                            style="width:40px;height:40px">
+                        </lord-icon>Profile
+                    </a>
+                    &nbsp&nbsp&nbsp
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <li><a class="dropdown-item" href="/change_password/{{user._id}}">
+                                <script src="https://cdn.lordicon.com/xdjxvujz.js"></script>
+                                <lord-icon src="https://cdn.lordicon.com/ugbgnnqc.json" trigger="hover"
+                                    style="width:30px;height:30px">
+                                </lord-icon>password change
+                            </a></li>
+
+                        <li><a class="dropdown-item" href="/edit_profile/{{user._id}}">
+                                <script src="https://cdn.lordicon.com/xdjxvujz.js"></script>
+                                <lord-icon src="https://cdn.lordicon.com/puvaffet.json" trigger="hover"
+                                    style="width:30px;height:30px">
+                                </lord-icon>Edit profile
+                            </a></li>
+                    </ul>
+                </li>
+                
+                &nbsp&nbsp&nbsp
+                <li class="nav-item">
+                    <a class="nav-link fs-6 text" href="/logout">
+                        <script src="https://cdn.lordicon.com/xdjxvujz.js"></script>
+                        <lord-icon src="https://cdn.lordicon.com/gkditgni.json" trigger="hover"
+                            style="width:35px;height:35px">
+                        </lord-icon>Log out
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div id="loader"></div>
+<section>
+  <!--for demo wrap-->
+  <h1>Fee History Table </h1>
+  <div class="tbl-header">
+    <table cellpadding="0" cellspacing="0" border="0">
+      <thead>
+        <tr>
+          <th>Amount</th>
+          <th>date</th>
+          <th>time</th>
+        </tr>
+      </thead>
+    </table>
+  </div>
+  <div class="tbl-content">
+    <table cellpadding="0" cellspacing="0" border="0">
+      <tbody>
+        {{#each history}}
+        <tr>
+
+          <td>₹{{this.amount}}</td>
+          <td>{{this.date}}</td>
+          <td>-{{this.time}}</td>
+
+        </tr>
+        {{/each}}
+      </tbody>
+    </table>
+  </div>
+</section>
+
+
+<!-- follow me template -->
+<div class="made-with-love">
+  Made with
+  <i>♥</i> by
+  <a  href="https://www.linkedin.com/in/muhammed-noufal-n-660357236/">Noufal</a>
+</div>
+<script>
+  // '.tbl-content' consumed little space for vertical scrollbar, scrollbar width depend on browser/os/platfrom. Here calculate the scollbar width .
+  $(window).on("load resize ", function () {
+    var scrollWidth = $('.tbl-content').width() - $('.tbl-content table').width();
+    $('.tbl-header').css({ 'padding-right': scrollWidth });
+  }).resize();
+
+    window.onload = function () {
+        setTimeout(showLoader, 1000); // show loader after 1 second delay
+        setTimeout(hideLoader, 1000); // hide loader after 3 second delay
+    }
+
+    function showLoader() {
+        document.getElementById("loader").style.display = "block";
+    }
+
+    function hideLoader() {
+        document.getElementById("loader").style.display = "none";
+    }
+</script>

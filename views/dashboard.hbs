@@ -1,0 +1,473 @@
+<link href="/stylesheets/dashboard.css" type="text/css" rel="stylesheet">
+<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+<script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+<script>
+    AOS.init();
+</script>
+<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+
+
+<sectio class="nav">
+
+
+
+    <h1>JAI-BHARATH</h1>
+
+
+</sectio>
+{{!-- <canvas class="background"></canvas> --}}
+<!-- <div class="nav-container"> -->
+<!-- <div id="header"> -->
+
+<!-- <div class="center"> -->
+
+<nav class="navbar navbar-expand-lg navbar-light" style="background-color:  #f8f9fa;">
+    <div class="container-fluid">
+
+
+
+
+
+
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div id="loader"></div>
+
+        &nbsp&nbsp&nbsp &nbsp&nbsp&nbsp &nbsp&nbsp&nbsp &nbsp&nbsp&nbsp &nbsp&nbsp&nbsp
+        <div class="collapse navbar-collapse" style="background-color:  #f8f9fa;height:60px;"
+            id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="navbar-nav me-auto mb-2 mb-lg-0">
+
+                    <a class="nav-link fs-6 text" aria-current="page" href="/profile">
+                        <script src="https://cdn.lordicon.com/xdjxvujz.js"></script>
+                        <lord-icon src="https://cdn.lordicon.com/gmzxduhd.json" trigger="hover"
+                            style="width:40px;height:40px;">
+                        </lord-icon>
+                        Home
+                    </a>
+                </li>
+                &nbsp&nbsp&nbsp
+                <li class="nav-item">
+                    <a class="nav-link fs-6 text" href="/payment/{{user._id}}">
+                        <script src="https://cdn.lordicon.com/xdjxvujz.js"></script>
+                        <lord-icon src="https://cdn.lordicon.com/uqpazftn.json" trigger="hover"
+                            style="width:50px;height:50px">
+                        </lord-icon>Payfee
+                    </a>
+
+                </li>
+
+                &nbsp&nbsp&nbsp
+
+                <li class="nav-item">
+                    <a class="nav-link fs-6 text" href="/fee_history/{{user._id}}/{{user.course}}">
+                        <script src="https://cdn.lordicon.com/xdjxvujz.js"></script>
+                        <lord-icon src="https://cdn.lordicon.com/nocovwne.json" trigger="hover"
+                            style="width:40px;height:40px">
+                        </lord-icon>Histroy
+                    </a>
+                </li>
+                &nbsp&nbsp&nbsp
+                <li class="nav-item dropdown">
+                    <a data-bs-toggle="dropdown" role="button" id="navbarDropdown"
+                        class="nav-link dropdown-toggle fs-6 text" href="">
+                        <script src="https://cdn.lordicon.com/xdjxvujz.js"></script>
+                        <lord-icon src="https://cdn.lordicon.com/dxjqoygy.json" trigger="hover"
+                            colors="primary:#121331,secondary:#08a88a" stroke="65" state="hover-looking-around"
+                            style="width:40px;height:40px">
+                        </lord-icon>Profile
+                    </a>
+                    &nbsp&nbsp&nbsp
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <li><a class="dropdown-item" href="/change_password/{{user._id}}">
+                                <script src="https://cdn.lordicon.com/xdjxvujz.js"></script>
+                                <lord-icon src="https://cdn.lordicon.com/ugbgnnqc.json" trigger="hover"
+                                    style="width:30px;height:30px">
+                                </lord-icon>password change
+                            </a></li>
+
+                        <li><a class="dropdown-item" href="/edit_profile/{{user._id}}">
+                                <script src="https://cdn.lordicon.com/xdjxvujz.js"></script>
+                                <lord-icon src="https://cdn.lordicon.com/puvaffet.json" trigger="hover"
+                                    style="width:30px;height:30px">
+                                </lord-icon>Edit profile
+                            </a></li>
+                    </ul>
+                </li>
+                &nbsp&nbsp&nbsp
+                {{!-- <li class="nav-item">
+                    <a class="fs-6 text nav-link" href="/attendance/{{user._id}}">
+                        <script src="https://cdn.lordicon.com/xdjxvujz.js"></script>
+                        <lord-icon src="https://cdn.lordicon.com/yyecauzv.json" trigger="hover"
+                            style="width:40px;height:40px">
+                        </lord-icon>Attendance
+                    </a>
+
+                </li> --}}
+
+                &nbsp&nbsp&nbsp
+
+                <li class="nav-item dropdown">
+                    <a data-bs-toggle="dropdown" role="button" id="navbarDropdown"
+                        class="nav-link dropdown-toggle fs-6 text" href="">
+
+                        <script src="https://cdn.lordicon.com/ritcuqlt.js"></script>
+                        <lord-icon src="https://cdn.lordicon.com/jvucoldz.json" trigger="hover"
+                            style="width:40px;height:40px">
+                        </lord-icon>Marks
+
+                    </a>
+                    &nbsp&nbsp&nbsp
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <li><a class="dropdown-item" href="/sem_marks/{{user._id}}/sem1/{{user.course}}">
+                                Semester 1
+                            </a></li>
+
+                        <li><a class="dropdown-item" href="/sem_marks/{{user._id}}/sem2/{{user.course}}">
+                                Semester 2
+                            </a></li>
+                        <li><a class="dropdown-item" href="/sem_marks/{{user._id}}/sem3/{{user.course}}">
+                                Semester 3
+                            </a></li>
+                        <li><a class="dropdown-item" href="/sem_marks/{{user._id}}/sem4/{{user.course}}">
+                                Semester 4
+                            </a></li>
+                        <li><a class="dropdown-item" href="/sem_marks/{{user._id}}/sem5/{{user.course}}">
+                                Semester 5
+                            </a></li>
+                        <li><a class="dropdown-item" href="/sem_marks/{{user._id}}/sem6/{{user.course}}">
+                                Semester 6
+                            </a></li>
+
+
+
+                    </ul>
+                </li>
+
+
+
+
+
+
+                &nbsp&nbsp&nbsp
+                <li class="nav-item">
+                    <a class="nav-link fs-6 text" href="/payment/{{user._id}}">
+                        <script src="https://cdn.lordicon.com/xdjxvujz.js"></script>
+                        <lord-icon src="https://cdn.lordicon.com/psnhyobz.json" style="width:35px;height: 35px;">
+                        </lord-icon>Notification
+                    </a>
+
+                </li>
+
+
+                &nbsp&nbsp&nbsp
+                <li class="nav-item">
+                    <a class="nav-link fs-6 text" href="/logout">
+                        <script src="https://cdn.lordicon.com/xdjxvujz.js"></script>
+                        <lord-icon src="https://cdn.lordicon.com/gkditgni.json" trigger="hover"
+                            style="width:35px;height:35px">
+                        </lord-icon>Log out
+                    </a>
+                </li>
+
+
+
+            </ul>
+        </div>
+    </div>
+</nav>
+
+
+<main class="main">
+
+
+    <div class="p-4" style="background: #1e1f26;">
+        <div data-aos="fade-up">
+            <div class="welcome">
+                <div style="height:100px;" class="content rounded-3 p-3">
+                    <h1 class="fs-3">Welcome to JB</h1>
+                    <p class="mb-0">Hello {{user.firstName}}{{user.lastName}}, welcome to JB acadamics!</p>
+                </div>
+            </div>
+        </div>
+
+        <div data-aos="fade-up">
+            <section class="statistics mt-4">
+
+                <div class="row">
+
+
+                    <div class="col-lg-4">
+                        <div class="box d-flex rounded-2 align-items-center mb-4 mb-lg-0 p-3">
+                            <i class="uil-envelope-shield fs-2 text-center bg-primary rounded-circle"><span
+                                    class="material-symbols-outlined" style="
+                        margin: 5px;">
+
+                                    currency_rupee
+
+                                </span></i>
+                            <div class="ms-3">
+                                <div class="d-flex align-items-center">
+                                    <h3 class="mb-0">{{payment.amount}}</h3> <span class="d-block ms-2">Feepaid</span>
+                                </div>
+                                <p class="fs-normal mb-0">Last paid date:{{payment.date}}</p>
+                            </div>
+                        </div>
+
+                    </div>
+
+
+
+                    <div class="col-lg-4">
+                        <div class="box d-flex rounded-2 align-items-center mb-4 mb-lg-0 p-3">
+                            <i class="uil-file fs-2 text-center bg-danger rounded-circle"><span
+                                    class="material-symbols-outlined">
+                                    assignment
+                                </span></i>
+                            <div class="ms-3">
+                                <div class="d-flex align-items-center">
+                                    <h3 class="mb-0">{{task.assignment}}</h3> <span
+                                        class="d-block ms-2">Assignments</span>
+                                </div>
+                                <p class="fs-normal mb-0">Submited Assignments</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="box d-flex rounded-2 align-items-center p-3">
+                            <i class="uil-users-alt fs-2 text-center bg-success rounded-circle"><span
+                                    class="material-symbols-outlined">
+                                    edit_note
+                                </span></i>
+                            <div class="ms-3">
+                                <div class="d-flex align-items-center">
+                                    <h3 class="mb-0">{{task.exams}}</h3> <span class="d-block ms-2">Exams</span>
+                                </div>
+                                <p class="fs-normal mb-0">Attended Exams in college</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+        </div>
+
+
+
+
+
+        <div data-aos="fade-up">
+            <section class="admins mt-4">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="box">
+                            <!-- <h4>Admins:</h4> -->
+                            <div style="height:92px;background-color:#313348;color:#dee7eb"
+                                class="admin d-flex align-items-center rounded-2 p-3 mb-4">
+                                <div class="img">
+
+                                    <img class="img-fluid rounded-pill" width="75" height="75" style="height:75px;"
+                                        src="/public/images/{{user._id}}.jpg" alt="profile">
+                                </div>
+
+
+
+
+                                <div class="ms-3">
+                                    <h3 class="fs-5 mb-1">Name</h3>
+                                    <p class="fs-normal  mb-0">{{user.firstName}} {{user.lastName}}</p>
+                                </div>
+                            </div>
+                            <div style="height:92px;background-color:#313348;color:#dee7eb"
+                                class="admin d-flex align-items-center rounded-2 p-3 mb-4">
+                                <div class="img">
+
+
+                                    <script src="https://cdn.lordicon.com/ritcuqlt.js"></script>
+                                    <lord-icon src="https://cdn.lordicon.com/ccwgfhfg.json" trigger="hover"
+                                        colors="outline:#ffffff,primary:#e83a30,secondary:#30e849,tertiary:#ebe6ef"
+                                        style="width:40px;height:40px">
+                                    </lord-icon>
+                                </div>
+
+
+
+                                <div style="width: 700px;" class="ms-3">
+
+
+                                    {{!-- <h3 class="fs-5 mb-1">Attendance</h3>
+                                    <div class="progress">
+                                        <div class="progress-bar" role="progressbar" id="disk-progress"
+                                            style="width: 0%;">0%</div>
+                                    </div> --}}
+
+
+
+                                    <h3 class="fs-5 mb-1">Attendance</h3>
+                                    <div class="progress">
+                                        <div class="progress-bar" role="progressbar" id="disk-progress"
+                                            style="width: 0%;">0%</div>
+                                    </div>
+
+
+
+                                </div>
+
+
+
+                            </div>
+                            <div style="background-color:#313348;color:#dee7eb"
+                                class="admin d-flex align-items-center rounded-2 p-3">
+                                <div class="img">
+                                    <script src="https://cdn.lordicon.com/xdjxvujz.js"></script>
+                                    <lord-icon src="https://cdn.lordicon.com/dxoycpzg.json" trigger="hover"
+                                        style="width:60px;height:60px">
+                                    </lord-icon>
+                                </div>
+                                <div class="ms-3">
+                                    <h3 class="fs-5 mb-1">Course</h3>
+                                    <p class="mb-0">{{user.course}} - {{user.startyear}}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="box">
+                            <!-- <h4>Moderators:</h4> -->
+                            <div style="height: 92px;background-color:#313348;color:#dee7eb"
+                                class="admin d-flex align-items-center rounded-2 p-3 mb-4">
+                                <div class="img">
+                                    <span style="width:60px;height:60px" class="material-symbols-outlined">
+                                        call
+                                    </span>
+                                </div>
+                                <div class="ms-3">
+                                    <h3 class="fs-5 mb-1">Mobile</h3>
+                                    <p class="mb-0">+91 {{user.mobile}}</p>
+                                </div>
+                            </div>
+                            <div style="background-color:#313348;color:#dee7eb"
+                                class="admin d-flex align-items-center rounded-2 p-3 mb-4">
+                                <div class="img">
+                                    <script src="https://cdn.lordicon.com/xdjxvujz.js"></script>
+                                    <lord-icon src="https://cdn.lordicon.com/pdpnqfoe.json" trigger="hover"
+                                        colors="primary:#4030e8,secondary:#ffffff" style="width:60px;height:60px">
+                                    </lord-icon>
+                                </div>
+                                <div class="ms-3">
+                                    <h3 class="fs-5 mb-1">Email</h3>
+                                    <p class="mb-0">{{user.email}}</p>
+                                </div>
+                            </div>
+                            <div style="background-color:#313348;color:#dee7eb"
+                                class="admin d-flex align-items-center rounded-2 p-3">
+                                <div class="img">
+                                    <script src="https://cdn.lordicon.com/xdjxvujz.js"></script>
+                                    <lord-icon src="https://cdn.lordicon.com/oaflahpk.json" trigger="hover"
+                                        style="width:60px;height:60px">
+                                    </lord-icon>
+                                </div>
+                                <div class="ms-3">
+                                    <h3 class="fs-5 mb-1">Address</h3>
+                                    <p class="mb-0">{{user.Address}}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+</main>
+
+{{#if passchange}}
+
+<script>
+    Toastify({
+        text: "Your new password  successfully updated",
+        className: "info",
+        duration: 8000,
+        close: true,
+        gravity: "top", // `top` or `bottom`
+        position: "left", // `left`, `center` or `right`
+        stopOnFocus: true, // Prevents dismissing of toast on hover
+        style: {
+            background: "linear-gradient(to right, #04de1a, #04de1a)",
+        }
+    })
+
+
+
+        .showToast();
+</script>
+
+
+
+
+
+
+
+
+
+{{/if}}
+
+
+
+
+
+
+
+{{#if response.status}}
+
+
+
+<script>
+    Toastify({
+        text: "Your profile successfully updated",
+        className: "info",
+        duration: 8000,
+        close: true,
+        gravity: "top", // `top` or `bottom`
+        position: "right", // `left`, `center` or `right`
+        stopOnFocus: true, // Prevents dismissing of toast on hover
+        style: {
+            background: "linear-gradient(to right, #5867d6,#5867d6)",
+        }
+    })
+
+
+
+        .showToast();
+</script>
+
+{{/if}}
+<script>
+    window.onload = function () {
+        setTimeout(showLoader, 1000); // show loader after 1 second delay
+        setTimeout(hideLoader, 1000); // hide loader after 3 second delay
+    }
+
+    function showLoader() {
+        document.getElementById("loader").style.display = "block";
+    }
+
+    function hideLoader() {
+        document.getElementById("loader").style.display = "none";
+    }
+
+
+    const progress = document.getElementById("disk-progress");
+
+    // Simulate a random disk usage percentage (0-100) every second
+    setInterval(() => {
+        const percentage = {{ task.attandance }}
+    
+    
+  progress.style.width = percentage + "%";
+    progress.innerHTML = percentage + "%";
+}, 2000);
+
+</script>

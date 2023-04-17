@@ -1,0 +1,125 @@
+<!--Hey! This is the original version
+of Simple CSS Waves-->
+<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+<script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+<script>
+    AOS.init();
+</script>
+<div class="header">
+    <h1 id="heading">Jai-Bharath College of Arts&Science</h1>
+    <!--Content before waves-->
+    <div class="inner-header flex">
+
+
+
+
+
+
+
+
+
+        {{!-- <div class="mainbg" --}} {{!-- <img
+            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTzpewoU8nRxfJFWUR8ybhp_uEscXtOCSGL3A&usqp=CAU"
+            alt="logo" class="image"><br> --}}
+
+
+            <div data-aos="flip-down">
+                <div class="container-fluid">
+                    <div class="login-box">
+                        <h2>Login</h2>
+
+                        {{#if loginerr}}
+
+                        <p class="erroe" style="color:red">invalid password or email </p>
+
+                        {{/if}}
+
+
+                        <form method="post" action="login-check">
+                            <div class="user-box">
+                                <input type="email" name="email" required>
+                                <label>Email</label>
+                            </div>
+                            <div class="user-box">
+                                <input type="password" id="typepass" name="password" required>
+                                <label>Password</label>
+                                <br>
+
+
+                            </div>
+                            <div>
+                                <input type="checkbox" onclick="Toggle()" class="form-check-input" id="exampleCheck1">
+                                <label class="form-check-label" for="exampleCheck1" style="padding-right: 188px;">Show
+                                    password</label>
+                            </div>
+
+                            <br>
+
+
+
+                            <button class="glow-on-hover" type="submit">LOGIN</button>
+
+                            <a class="d-block text-center mt-2 small" href="/signup"
+                                style="color:rgb(234, 225, 225);">Don't
+                                have an
+                                account? Signup</a>
+                            <a class="d-block text-center mt-2 small" href="/forgetpass"
+                                style="color:rgb(234, 225, 225);">
+                                Forget password</a>
+
+
+                        </form>
+                    </div>
+
+                </div>
+            </div>
+
+            <br>
+
+
+
+
+
+            <script>
+
+
+                function Toggle() {
+                    var temp = document.getElementById("typepass");
+                    if (temp.type === "password") {
+                        temp.type = "text";
+                    }
+                    else {
+                        temp.type = "password";
+                    }
+                }
+            </script>
+
+
+        </div>
+
+        <!--Waves Container-->
+        <div>
+            <svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
+                <defs>
+                    <path id="gentle-wave"
+                        d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
+                </defs>
+                <g class="parallax">
+                    <use xlink:href="#gentle-wave" x="48" y="0" fill="rgba(255,255,255,0.7" />
+                    <use xlink:href="#gentle-wave" x="48" y="3" fill="rgba(255,255,255,0.5)" />
+                    <use xlink:href="#gentle-wave" x="48" y="5" fill="rgba(255,255,255,0.3)" />
+                    <use xlink:href="#gentle-wave" x="48" y="7" fill="#fff" />
+                </g>
+            </svg>
+        </div>
+        <!--Waves end-->
+
+    </div>
+    <!--Header ends-->
+
+    <!--Content starts-->
+    <div class="content flex">
+        <p>developed ♥</p>
+    </div>
+    <!--Content ends-->

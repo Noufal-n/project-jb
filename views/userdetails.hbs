@@ -1,0 +1,108 @@
+<link href="/stylesheets/user.css" type="text/css" rel="stylesheet">
+
+
+<div id="demo">
+	<h1 style="text-align:center;">Students Info</h1>
+
+	<!-- Responsive table starts here -->
+	<!-- For correct display on small screens you must add 'data-title' to each 'td' in your table -->
+	<div class="table-responsive-vertical shadow-z-1">
+		<!-- Table starts here -->
+		<table id="table" class="table table-hover table-mc-light-blue">
+			<thead>
+				<tr>
+					<th>Name</th>
+					<th>Course</th>
+					<th>Date of birth</th>
+					<th>Gender</th>
+					<th>Admission year</th>
+					<th>Mobile</th>
+					<th>Email</th>
+					<th>Address</th>
+				</tr>
+			</thead>
+			<tbody>
+{{#each user}}
+
+				<tr>
+					<td>{{this.firstName}}{{this.lastName}}</td>
+					<td>{{this.course}}</td>
+					<td>{{this.DOB}}</td>
+					<td>{{this.gender}}</td>
+					<td>{{this.startyear}}</td>
+					<td>{{this.mobile}}</td>
+					<td>{{this.email}}</td>
+					<td>{{this.Address}}</td>
+				</tr>
+{{/each}}
+			</tbody>
+		</table>
+	</div>
+
+	<!-- Table Constructor change table classes, you don't need it in your project -->
+</div>
+<div class="d-grid gap-2 d-md-flex justify-content-md-end">
+    <a class="btn btn-primary me-md-2" href="/admin/panel">Back</a>
+</div>
+
+<script>
+
+
+
+	$(document).ready(function () {
+
+		var table = $('#table');
+
+		// Table bordered
+		$('#table-bordered').change(function () {
+			var value = $(this).val();
+			table.removeClass('table-bordered').addClass(value);
+		});
+
+		// Table striped
+		$('#table-striped').change(function () {
+			var value = $(this).val();
+			table.removeClass('table-striped').addClass(value);
+		});
+
+		// Table hover
+		$('#table-hover').change(function () {
+			var value = $(this).val();
+			table.removeClass('table-hover').addClass(value);
+		});
+
+		// Table color
+		$('#table-color').change(function () {
+			var value = $(this).val();
+			table.removeClass(/^table-mc-/).addClass(value);
+		});
+	});
+
+	// jQuery’s hasClass and removeClass on steroids
+	// by Nikita Vasilyev
+	// https://github.com/NV/jquery-regexp-classes
+	(function (removeClass) {
+
+		jQuery.fn.removeClass = function (value) {
+			if (value && typeof value.test === "function") {
+				for (var i = 0, l = this.length; i < l; i++) {
+					var elem = this[i];
+					if (elem.nodeType === 1 && elem.className) {
+						var classNames = elem.className.split(/\s+/);
+
+						for (var n = classNames.length; n--;) {
+							if (value.test(classNames[n])) {
+								classNames.splice(n, 1);
+							}
+						}
+						elem.className = jQuery.trim(classNames.join(" "));
+					}
+				}
+			} else {
+				removeClass.call(this, value);
+			}
+			return this;
+		}
+
+	})(jQuery.fn.removeClass);
+</script>

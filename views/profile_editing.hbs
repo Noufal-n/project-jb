@@ -1,0 +1,133 @@
+<link href="/stylesheets/profile_editing.css" type="text/css" rel="stylesheet">
+{{!--
+<link href="/stylesheets/profile.css" type="text/css" rel="stylesheet"> --}}
+
+
+
+
+
+
+<nav class="navbar navbar-expand-lg navbar-light" style="background-color: #e3f2fd;">
+  <div class="container-fluid">
+
+
+
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    &nbsp&nbsp&nbsp &nbsp&nbsp&nbsp &nbsp&nbsp&nbsp &nbsp&nbsp&nbsp &nbsp&nbsp&nbsp
+    <div class="collapse navbar-collapse" style="background-color: #e3f2fd;height:60px;" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="navbar-nav me-auto mb-2 mb-lg-0">
+
+          <a class="nav-link fs-6 text" aria-current="page" href="/profile">
+            <script src="https://cdn.lordicon.com/xdjxvujz.js"></script>
+            <lord-icon src="https://cdn.lordicon.com/gmzxduhd.json" trigger="hover" style="width:40px;height:40px;">
+            </lord-icon>
+            Home
+          </a>
+        </li>
+        &nbsp&nbsp&nbsp
+        <li class="nav-item">
+          <a class="nav-link fs-6 text" href="/payment/{{details._id}}">
+            <script src="https://cdn.lordicon.com/xdjxvujz.js"></script>
+            <lord-icon src="https://cdn.lordicon.com/uqpazftn.json" trigger="hover" style="width:50px;height:50px">
+            </lord-icon>Payfee
+          </a>
+
+        </li>
+
+        &nbsp&nbsp&nbsp
+
+        <li class="nav-item">
+          <a class="nav-link fs-6 text" href="/fee_history/{{details._id}}/{{details.course}}">
+            <script src="https://cdn.lordicon.com/xdjxvujz.js"></script>
+            <lord-icon src="https://cdn.lordicon.com/nocovwne.json" trigger="hover" style="width:40px;height:40px">
+            </lord-icon>Histroy
+          </a>
+        </li>
+        &nbsp&nbsp&nbsp
+
+        <li class="nav-item dropdown">
+          <a data-bs-toggle="dropdown" role="button" id="navbarDropdown" class="nav-link dropdown-toggle fs-6 text"
+            href="">
+            <script src="https://cdn.lordicon.com/xdjxvujz.js"></script>
+            <lord-icon src="https://cdn.lordicon.com/dxjqoygy.json" trigger="hover"
+              colors="primary:#121331,secondary:#08a88a" stroke="65" state="hover-looking-around"
+              style="width:40px;height:40px">
+            </lord-icon>Profile
+          </a>
+          &nbsp&nbsp&nbsp
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <li><a class="dropdown-item" href="/change_password/{{details._id}}">
+                <script src="https://cdn.lordicon.com/xdjxvujz.js"></script>
+                <lord-icon src="https://cdn.lordicon.com/ugbgnnqc.json" trigger="hover" style="width:30px;height:30px">
+                </lord-icon>password change
+              </a></li>
+
+            <li><a class="dropdown-item" href="/edit_profile/{{details._id}}">
+                <script src="https://cdn.lordicon.com/xdjxvujz.js"></script>
+                <lord-icon src="https://cdn.lordicon.com/puvaffet.json" trigger="hover" style="width:30px;height:30px">
+                </lord-icon>Edit profile
+              </a></li>
+          </ul>
+        </li>
+        &nbsp&nbsp&nbsp
+        
+        &nbsp&nbsp&nbsp
+        <li class="nav-item">
+          <a class="nav-link fs-6 text" href="/logout">
+            <script src="https://cdn.lordicon.com/xdjxvujz.js"></script>
+            <lord-icon src="https://cdn.lordicon.com/gkditgni.json" trigger="hover" style="width:30px;height:30px">
+            </lord-icon>Log out
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+
+<div class="container rounded  mt-5 mb-5">
+  <div class="row">
+    <div class="col-md-3 border-right">
+      <div class="d-flex flex-column align-items-center text-center p-3 py-5"> <img class="img-fluid rounded-pill"
+          width="75" height="75" src="{{deatils._id}}.jpg" alt="user"><span
+          class="font-weight-bold">{{details.firstName}}{{details.lastName}}</span></div>
+    </div>
+    <div class="col-md-5 border-right">
+      <div class="p-3 py-5">
+        <div class="d-flex justify-content-between align-items-center mb-3">
+          <h4 class="text-right">Edit Profile </h4>
+        </div>
+        <form action="/update_profile/{{details._id}}" method="post">
+          <div class="row mt-2">
+            <div class="col-md-6"><label class="labels">Name</label><input type="text" class="form-control"
+                placeholder="first name" required name="firstName" value="{{details.firstName}}"></div>
+            <div class="col-md-6"><label class="labels">lastName</label><input required name="lastName" type="text"
+                class="form-control" value="{{details.lastName}}" placeholder="lastname"></div>
+          </div>
+          <div class="row mt-3">
+            <div class="col-md-12"><label class="labels">Mobile Number</label><input name="mobile" required
+                type="number" class="form-control" placeholder="enter phone number" value="{{details.mobile}}"></div>
+            <div class="col-md-12"><label class="labels">Address </label><input type="text" required name="address"
+                class="form-control" placeholder="enter address line 1" value="{{details.Address}}"></div>
+
+
+
+            <div class="col-md-12"><label class="labels">Email ID</label><input name="email" required type="text"
+                class="form-control" placeholder="enter email id" value="{{details.email}}"></div>
+
+            <div class="mt-5 text-center"><button class="btn btn-primary profile-button" type="submit">Save
+                Profile</button></div>
+        </form>
+      </div>
+    </div>
+
+  </div>
+</div>
+</div>
+</div>

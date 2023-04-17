@@ -1,0 +1,115 @@
+<div class="mainbg">
+
+
+    <h1 id="heading">Jai-bharath college of Arts&science</h1>
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTzpewoU8nRxfJFWUR8ybhp_uEscXtOCSGL3A&usqp=CAU"
+        alt="logo" class="image"><br>
+
+
+
+
+
+    <div id="round" class="card rounded bg-white align-items-center mx-auto mt-5 mb-5" style="width:35% ">
+
+        <div class="col-md-8 border-right">
+            <div id="" class="p-3 py-5">
+
+
+                <div class="d-flex justify-content-between align-items-center mb-3">
+
+                    <h4 class="text-right">Profile </h4>
+                </div>
+
+                <form id="details" enctype="multipart/form-data" action="profile-details" method="post">
+
+                    <div class="profile-pic-wrapper">
+                        <div class="pic-holder">
+                            <!-- uploaded pic shown here -->
+                            <img id="profilePic" class="pic"
+                                src="https://media.istockphoto.com/vectors/waiters-avatar-icon-element-of-simple-icon-for-websites-web-design-vector-id1021463344">
+
+                            <Input class="uploadProfileInput" type="file" required name="profile_pic"
+                                id="newProfilePhoto" accept="image/*" />
+                            <label for="newProfilePhoto" class="upload-file-block">
+                                <div class="text-center">
+                                    <div class="mb-2">
+                                        <i class="fa fa-camera fa-2x"></i>
+                                    </div>
+                                    <div class="text-uppercase">
+                                        Update <br /> Profile Photo
+                                    </div>
+                                </div>
+                            </label>
+                        </div>
+
+                        <div class="row mt-2">
+                            <div class="form-group"><label class="labels">Name</label>
+                                <input class="form-control" name="name" placeholder="name" type="text">
+                            </div>
+
+                            <div class="col-md-12"><label class="labels">Lastname</label>
+                                <input class="form-control" name="lname" placeholder="lastname" type="text">
+                            </div>
+                        </div>
+
+                        <div class="col-md-12"><label class="labels">Address </label>
+                            <input class="form-control" name="address" placeholder="address" type="text">
+                        </div>
+
+                        <div class="col-md-12"><label class="labels">Postcode</label>
+                            <input class="form-control"  maxlength="6" minlength="6" name="post_code" placeholder="post code" type="number">
+                        </div>
+
+
+
+                        <div class="col-md-12"><label class="labels">Course :</label>
+
+                            <select name="course" class="form-select">
+                                <option value="BCA" selected disabled>BCA</option>
+                            </select>
+
+                        </div>
+
+
+                        <div class="mt-5 text-center"><button onsubmit="myjs()" class="btn btn-primary profile-button"
+                                type="submit">Submit</button>
+
+                            <button class="btn btn-primary profile-button" type="reset">Reset</button>
+                        </div>
+                    </div>
+                    <script>(function myjs() {
+                            validate({
+                                rules: {
+                                    post: {
+                                        required: true,
+                                        maxlength: 6,
+                                        minlength: 6
+
+                                    },
+
+                                    address: {
+                                        minlength: 6,
+                                        required: true
+                                    },
+
+
+                                    name: {
+                                        required: true,
+                                        minlength: 3
+                                    },
+                                    lname: {
+                                        required: true,
+                                        minlength: 3
+                                    },
+
+                                }
+                            })
+                        })</script>
+                </form>
+            </div>
+
+
+        </div>
+    </div>
+</div>
+<script>

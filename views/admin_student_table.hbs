@@ -1,0 +1,121 @@
+<link href="/stylesheets/admin_student_table.css" type="text/css" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+
+
+<div class="container">
+
+
+
+    <table class="table table-dark table-striped">
+        <thead>
+            <tr>
+                <th scope="col">Name</th>
+                <th scope="col">Assignment</th>
+                <th scope="col">exams</th>
+                <th scope="col">Attendance %</th>
+                <th scope="col"></th>
+            </tr>
+        </thead>
+        <tbody>
+            {{#each response}}
+
+            <tr>
+                <form id="works" method="post" onsubmit="tost()" action="/update/exams/assignment/">
+
+                    <td>{{this.firstName}}{{this.lastName}}</td>
+                    <td><input name="assignment" required type="number" /></td>
+                    <td><input name="exams" required type="number" /></td>
+                    <td><input name="attandance" max="100" required type="number" /></td>
+                    <td><input class="btn btn-success" type="submit" value="update" /></td>
+                    <input name="name" hidden value="{{this.firstName}}{{this.lastName}}" type="text" />
+                    <input name="course" hidden value="{{this.course}}" type="text" />
+                    <input name="userid" hidden value="{{this._id}}" type="text" />
+                    <input name="userid" hidden value="{{this.startyear}}" type="text" />
+                </form>
+            </tr>
+            {{/each}}
+        </tbody>
+
+    </table>
+
+    
+
+
+    <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+        <div class="col-md-12 text-center">
+        <a class="btn btn-danger me-md-2" href="/admin/panel">Back</a>
+        </div>
+    </div>
+    <br>
+    <br>
+    <table class="table table-dark table-striped">
+
+        <thead>
+            <tr>
+                <th scope="col">Name</th>
+                <th scope="col">Assignment</th>
+                <th scope="col">exams</th>
+                <th scope="col">Attendance </th>
+            </tr>
+        </thead>
+        <tbody>
+            {{#each data}}
+            <tr>
+                <td id="name">{{this.name}}</td>
+                <td id="assig"><a>{{this.assignment}}</a></td>
+                <td id="exa"><a>{{this.exams}}</a></td>
+                <td id="att"><a>{{this.attandance}}%</a></td>
+            </tr>
+            {{/each}}
+        </tbody>
+    </table>
+</div>
+
+
+<script>
+
+    $("#works").submit((e) => {
+        e.preventDefault()
+        $.ajax({
+            url: '/update/exams/assignment/',
+            method: 'post',
+            data: $('#works').serialize(),
+            {{!-- success: (response) => {
+
+
+                show(response)
+                console.log(response)
+                tost();
+
+
+            } --}}
+        })
+    })
+
+    {{!-- function show(data) {
+        var nam = data.name
+        var ass = data.assignment
+        var xam = data.exams
+        var attent = data.attandance + '%'
+        document.getElementById('name').innerHTML = nam;
+        document.getElementById('assig').innerHTML = ass;
+        document.getElementById('exa').innerHTML = xam;
+        document.getElementById('att').innerHTML = attent;
+    } --}}
+
+    function tost() {
+        Toastify({
+            text: "task updated",
+            className: "info",
+            duration: 4000,
+            close: true,
+            gravity: "top", // `top` or `bottom`
+            position: "right", // `left`, `center` or `right`
+            stopOnFocus: true, // Prevents dismissing of toast on hover
+            style: {
+                background: "linear-gradient(to right, #4BB543, #4BB543)",
+            }
+        }).showToast();
+    }
+</script>

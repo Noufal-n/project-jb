@@ -1,0 +1,396 @@
+<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.6.4/js/bootstrap-datepicker.js"></script>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.6.4/css/bootstrap-datepicker.css"
+    rel="stylesheet" />
+
+
+
+
+<div class="mainbg">
+    <h1 id="heading1">Jai-bharath college of Arts&science</h1>
+    {{!-- <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTzpewoU8nRxfJFWUR8ybhp_uEscXtOCSGL3A&usqp=CAU"
+        alt="logo" class="image"><br> --}}
+
+
+
+    {{#if data.nocode}}
+
+
+
+    <script>
+        Toastify({
+            text: "No code in database contact Admin",
+            className: "info",
+            duration: 8000,
+            close: true,
+            gravity: "top", // `top` or `bottom`
+            position: "right", // `left`, `center` or `right`
+            stopOnFocus: true, // Prevents dismissing of toast on hover
+            style: {
+                background: "linear-gradient(to right, #FF0000, #FF0000)",
+            }
+        })
+
+
+
+            .showToast();
+    </script>
+
+    {{/if}}
+
+
+    {{#if email.email}}
+
+
+
+    <script>
+        Toastify({
+            text: "this user is already existed",
+            className: "info",
+            duration: 8000,
+            close: true,
+            gravity: "top", // `top` or `bottom`
+            position: "right", // `left`, `center` or `right`
+            stopOnFocus: true, // Prevents dismissing of toast on hover
+            style: {
+                background: "linear-gradient(to right, #FF0000, #FF0000)",
+            }
+        })
+
+
+
+            .showToast();
+    </script>
+
+    {{/if}}
+
+
+
+
+
+    <div class="container py-5 h-100">
+        <div class="row justify-content-center align-items-center h-100">
+            <div class="col-12 col-lg-9 col-xl-7">
+                <div class="card shadow-2-strong card-registration" style="border-radius: 15px;">
+                    <div class="card-body p-4 p-md-5">
+                        <h3 class="mb-4 pb-2 pb-md-0 mb-md-5">signup</h3>
+
+                        <form action="/signup_submit" enctype="multipart/form-data" onsubmit=" return verifyPassword()"
+                            method="post">
+
+
+
+
+
+                            <div class="container">
+                                <div class="picture-container">
+                                    <div class="picture">
+                                        <!-- User Profile Image -->
+                                        <img class="profile-pic"
+                                            src="http://cdn.cutestpaw.com/wp-content/uploads/2012/07/l-Wittle-puppy-yawning.jpg">
+
+                                        <!-- Default Image -->
+                                        <!-- <i class="fa fa-user fa-5x"></i> -->
+                                        {{!--
+                                    </div>
+                                    <div class="p-image"> --}}
+                                        <i class="fa fa-camera upload-button"></i>
+                                        <input name="profile_pic" required class="file-upload" type="file"
+                                            accept="image/*" />
+                                    </div>
+                                </div>
+                            </div>
+                    </div>
+
+
+
+                    {{!-- <div class="container">
+                        <div class="picture-container">
+                            <div class="picture">
+                                <img src="https://www.kindpng.com/picc/m/192-1925162_login-icon-png-transparent-png.jpg"
+                                    class=" picture-src" id="wizardPicturePreview" title="">
+                                <input type="file" onchange="viewimage(event)" required name="profile_pic"
+                                    id="profile_pic" class="">
+                            </div>
+                            <h6 class="">Choose profile pic</h6>
+
+                        </div>
+                    </div> --}}
+
+
+                    <div class="row">
+                        <div class="col-md-6 mb-4">
+
+                            <div class="form-outline">
+                                <input type="text" required name="firstName" class="form-control form-control-lg" />
+                                <label class="form-label" for="firstName">First Name</label>
+                            </div>
+
+                        </div>
+                        <div class="col-md-6 mb-4">
+
+                            <div class="form-outline">
+                                <input type="text" required name="lastName" class="form-control form-control-lg" />
+                                <label class="form-label" for="lastName">Last Name</label>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <div class="row">
+
+
+                        <div class="col-md-6 mb-4 d-flex align-items-center">
+
+                            <div class="form-outline datepicker w-100">
+
+                                <input type="date" required class="form-control form-control-lg" name="DOB"
+                                    id="birthdayDate" />
+                                <label for="birthdayDate" class="form-label">Birthday</label>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="col-md-6 mb-4 d-flex align-items-center">
+
+                            <div class="form-outline datepicker w-100">
+
+                                <input required class="form-control form-control-lg" type="text" name="startyear"
+                                    id="datepicker">
+
+                                <label for="birthdayDate" class="form-label">Year of Addmission</label>
+
+                            </div>
+
+                        </div>
+
+
+
+
+
+
+                        <div class="col-md-6 mb-4">
+
+                            <h6 class="mb-2 pb-1">Gender: </h6>
+
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="gender" id="femaleGender"
+                                    value="female" checked />
+                                <label class="form-check-label" for="femaleGender">Female</label>
+                            </div>
+
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="gender" id="maleGender"
+                                    value="male" />
+                                <label class="form-check-label" for="maleGender">Male</label>
+                            </div>
+
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="gender" id="otherGender"
+                                    value="other" />
+                                <label class="form-check-label" for="otherGender">Other</label>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-6 mb-4 pb-2">
+
+                            <div class="form-outline">
+                                <input type="email" required name="email" id="emailAddress"
+                                    class="form-control form-control-lg" />
+                                <label class="form-label" for="emailAddress">Email</label>
+                            </div>
+
+                        </div>
+                        <div class="col-md-6 mb-4 pb-2">
+
+                            <div class="form-outline">
+                                <input type="tel" pattern="[1-9]{1}[0-9]{9}" required maxlength="10" minlength="10"
+                                    name="mobile" id="phoneNumber" class="form-control form-control-lg" />
+                                <label class="form-label" for="phoneNumber">Phone Number </label>
+                            </div>
+
+                        </div>
+
+
+                        <div class="col-md-6 mb-4 pb-2">
+                            <div class="Form-outline ">
+                                <select class="form-control form-control-lg" name="course" id="validationDefault04"
+                                    required>
+                                    <option selected disabled value="">choose</option>
+                                    <option value="BCA">BCA</option>
+                                    <option value="BSC,CYBERFORENSIC">BSC,CYBERFORENSIC</option>
+                                    <option value="BSC,ComputerScience">BSC,Computer Science</option>
+
+                                </select>
+                                <label class="form-label">Course</label>
+                            </div>
+                        </div>
+
+
+
+                        <div class="col-md-6 mb-4 pb-2">
+
+                            <div class="form-outline">
+                                <input type="text" required name="Address" id="address"
+                                    class="form-control form-control-lg" />
+                                <label class="form-label" for="phoneNumber">Address </label>
+                            </div>
+
+                        </div>
+
+
+                        <div class="col-md-6 mb-4 pb-2">
+
+                            <div class="form-outline">
+                                <input type="password" name="password" class="form-control form-control-lg" id="pass"
+                                    placeholder="Password">
+                                <br>
+
+                                <input type="checkbox" onclick="Toggle()" class="form-check-input" id="exampleCheck1">
+                                <label class="form-check-label" for="exampleCheck1">Show
+                                    password</label>
+
+
+                            </div>
+
+                        </div>
+
+
+
+                        <div class="col-md-6 mb-4 ">
+
+                            <div class="form-outline">
+                                <input type="password" required class="form-control form-control-lg" id="pass2"
+                                    placeholder="Confirm Password">
+
+
+                            </div>
+
+                        </div>
+
+
+                    </div>
+
+
+                    <span id="message" style="color:red"> </span> <br><br>
+
+
+                    <div class="mt-4 pt-2 text-center">
+
+                        <input class="btn btn-primary btn-lg" type="submit" value="Submit">
+                        <input class="btn btn-primary btn-lg" type="reset">
+                    </div>
+                    <a class="d-block text-center mt-2 small" href="/">
+                        have an
+                        account? login</a>
+
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+</div>
+
+
+
+
+
+<script type="text/javascript">
+
+
+
+
+
+
+
+
+    function Toggle() {
+        var temp = document.getElementById("pass");
+        if (temp.type === "password") {
+            temp.type = "text";
+        }
+        else {
+            temp.type = "password";
+        }
+    }
+
+    function verifyPassword() {
+        var pw2 = document.getElementById("pass2").value;
+        var pw = document.getElementById("pass").value;
+        //check empty password field  
+        if (pw == "") {
+            document.getElementById("message").innerHTML = "Fill the password ";
+            return false;
+        }
+        // check confrim passwords
+        if (pw != pw2) {
+            document.getElementById("message").innerHTML = "check the passwords ";
+            return false;
+        }
+        //minimum password length validation  
+        if (pw.length < 8) {
+            document.getElementById("message").innerHTML = "password length must be atleast 8 characters";
+            return false;
+        }
+
+        //maximum length of password validation  
+        if (pw.length > 15) {
+            document.getElementById("message").innerHTML = "Password length must not exceed 15 characters";
+            return false;
+        } else {
+            return confirm("are you sure want to submit");
+        }
+    }
+    function viewimage(event) {
+        document.getElementById('wizardPicturePreview').src = URL.createObjectURL(event.target.file[1])
+    }
+
+
+    $(document).ready(function () {
+
+
+        var readURL = function (input) {
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
+
+                reader.onload = function (e) {
+                    $('.profile-pic').attr('src', e.target.result);
+                }
+
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
+
+
+        $(".file-upload").on('change', function () {
+            readURL(this);
+        });
+
+        $(".upload-button").on('click', function () {
+            $(".file-upload").click();
+        });
+    });
+
+
+
+    $("#datepicker").datepicker({
+        format: "yyyy",
+        viewMode: "years",
+        minViewMode: "years"
+    });
+
+</script>
+
+</script>

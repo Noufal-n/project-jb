@@ -1,0 +1,57 @@
+<link href="/stylesheets/name_selection.css" type="text/css" rel="stylesheet">
+
+<div class="container">
+    <h1 class="heading-lv1">{{course}} University Semester mark chart</h1>
+
+    <div class="table-app" id="product-table-app">
+
+        <!-- /.table-handler -->
+
+        <div class="table-wrapper">
+            <table class="table" id="table">
+                <thead>
+                    <tr class="table-head">
+                        <th class="table-cell align-right">Name</th>
+                        <th class="table-cell align-right">sem1</th>
+                        <th class="table-cell align-right">sem2</th>
+                        <th class="table-cell align-right">sem3</th>
+                        <th class="table-cell align-right">sem4</th>
+                        <th class="table-cell align-right">sem5</th>
+                        <th class="table-cell align-right">sem6</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+
+                    {{#each data}}
+
+                    <tr>
+                        <td>{{this.firstName}}{{this.lastName}} </td>
+                        <td><a class="btn btn-primary"
+                                href="/admin/put/sem_marks/{{this._id}}/{{this.course}}/{{this.firstName}}{{this.lastName}}/sem1">Edit</a>
+                        <td><a class="btn btn-primary"
+                                href="/admin/put/sem_marks/{{this._id}}/{{this.course}}/{{this.firstName}}{{this.lastName}}/sem2">Edit</a>
+                        <td><a class="btn btn-primary"
+                                href="/admin/put/sem_marks/{{this._id}}/{{this.course}}/{{this.firstName}}{{this.lastName}}/sem3">Edit</a>
+                        <td><a class="btn btn-primary"
+                                href="/admin/put/sem_marks/{{this._id}}/{{this.course}}/{{this.firstName}}{{this.lastName}}/sem4">Edit</a>
+                        <td><a class="btn btn-primary"
+                                href="/admin/put/sem_marks/{{this._id}}/{{this.course}}/{{this.firstName}}{{this.lastName}}/sem5">Edit</a>
+                        <td><a class="btn btn-primary"
+                                href="/admin/put/sem_marks/{{this._id}}/{{this.course}}/{{this.firstName}}{{this.lastName}}/sem6">Edit</a>
+
+                        </td>
+                    </tr>
+                    {{/each}}
+
+                </tbody>
+            </table>
+
+
+            <!-- /#no-results -->
+        </div>
+        <!-- /.table-wrapper -->
+    </div>
+    <!-- /.table-app -->
+</div>
+<!-- /.container -->

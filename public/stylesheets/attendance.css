@@ -1,0 +1,69 @@
+.progress-bar {
+	font-size: 1.5rem;
+	font-weight: bold;
+	text-align: center;
+  }
+  
+#loader {
+	-webkit-animation: dots-flow .85s infinite ease;
+			animation: dots-flow .85s infinite ease;
+	border-radius: 100%;
+	content: '';
+	height: 16px;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	-webkit-transform: translate(-50%, -40px);
+			transform: translate(-50%, -40px);
+	width: 16px; }
+  
+  @-webkit-keyframes dots-flow {
+	0%, 100% {
+	  -webkit-box-shadow: -26px 32px 0px 0 white, 0px 32px 0 0 white, 26px 32px 0 0 white;
+			  box-shadow: -26px 32px 0px 0 white, 0px 32px 0 0 white, 26px 32px 0 0 white; }
+	35% {
+	  -webkit-box-shadow: -26px 32px 0 4px rgb(19, 38, 180), 0px 32px 0 0 white, 26px 32px 0 0 white;
+			  box-shadow: -26px 32px 0 4px rgb(19, 38, 180), 0px 32px 0 0 white, 26px 32px 0 0 white; }
+	50% {
+	  -webkit-box-shadow: -26px 32px 0 0 white, 0px 32px 0 4px rgb(19, 38, 180), 26px 32px 0 0 white;
+			  box-shadow: -26px 32px 0 0 white, 0px 32px 0 4px rgb(19, 38, 180), 26px 32px 0 0 white; }
+	65% {
+	  -webkit-box-shadow: -26px 32px 0px 0 white, 0px 32px 0 0 white, 26px 32px 0 4px rgb(19, 38, 180);
+			  box-shadow: -26px 32px 0px 0 white, 0px 32px 0 0 white, 26px 32px 0 4px rgb(19, 38, 180); } }
+  
+  @keyframes dots-flow {
+	0%, 100% {
+	  -webkit-box-shadow: -26px 32px 0px 0 white, 0px 32px 0 0 white, 26px 32px 0 0 white;
+			  box-shadow: -26px 32px 0px 0 white, 0px 32px 0 0 white, 26px 32px 0 0 white; }
+	35% {
+	  -webkit-box-shadow: -26px 32px 0 4px rgb(19, 38, 180), 0px 32px 0 0 white, 26px 32px 0 0 white;
+			  box-shadow: -26px 32px 0 4px rgb(19, 38, 180), 0px 32px 0 0 white, 26px 32px 0 0 white; }
+	50% {
+	  -webkit-box-shadow: -26px 32px 0 0 white, 0px 32px 0 4px rgb(19, 38, 180), 26px 32px 0 0 white;
+			  box-shadow: -26px 32px 0 0 white, 0px 32px 0 4px rgb(19, 38, 180), 26px 32px 0 0 white; }
+	65% {
+	  -webkit-box-shadow: -26px 32px 0px 0 white, 0px 32px 0 0 white, 26px 32px 0 4px rgb(19, 38, 180);
+			  box-shadow: -26px 32px 0px 0 white, 0px 32px 0 0 white, 26px 32px 0 4px rgb(19, 38, 180); } }
+  
+	
+body {
+	background: #18222F;
+}
+
+/* .wrapper {
+	position: absolute;
+	width: 400px;
+	height: 400px;
+	margin: auto;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	display: flex;
+	flex-direction: row;
+} */
+
+.container {
+	flex: 1;
+	padding: 0 20px;
+}

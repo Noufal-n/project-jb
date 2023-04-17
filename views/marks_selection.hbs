@@ -1,0 +1,70 @@
+<link href="/stylesheets/mark_selection.css" type="text/css" rel="stylesheet">
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.6.4/js/bootstrap-datepicker.js"></script>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.6.4/css/bootstrap-datepicker.css"
+    rel="stylesheet" />
+
+
+
+
+
+
+
+<div class="wrapper">
+    <form method="post" action="/admin/marks_selection" class="form-signin">
+        <h2 class="form-signin-heading">choose course,type & Year</h2>
+
+
+        <div class="col-md-6 mb-4 pb-2">
+            <div class="Form-outline ">
+                <select class="form-control form-control-lg" name="course" id="validationDefault04" required>
+                    <option selected disabled value="">choose</option>
+                    <option value="BCA">BCA</option>
+                    <option value="CF">BSC,CYBERFORENSIC</option>
+                    <option value="CS">BSC,Computer Science</option>
+
+                </select>
+                <label class="form-label">Course</label>
+            </div>
+        </div>
+
+        {{!-- <div class="col-md-6 mb-4 pb-2">
+            <div class="Form-outline ">
+                <select class="form-control form-control-lg" name="type" id="validationDefault04" required>
+                    <option selected disabled value="">choose</option>
+                    <option value="mgmarks">University marks</option>
+                    <option value="collegemarks">college marks</option>
+                </select>
+                <label class="form-label">Mark type</label>
+            </div>
+        </div> --}}
+
+
+        <div class="col-md-6 mb-4 d-flex align-items-center">
+
+            <div class="form-outline datepicker w-100">
+
+                <input required class="form-control form-control-lg" type="text" name="startyear" id="datepicker">
+
+                <label class="form-label">Year of Addmission</label>
+
+            </div>
+
+        </div>
+        <button class="btn btn-lg btn-primary btn-block" type="submit">Submit</button>
+    </form>
+</div>
+
+
+
+
+
+
+<script>
+    $("#datepicker").datepicker({
+        format: "yyyy",
+        viewMode: "years",
+        minViewMode: "years"
+    });
+</script>

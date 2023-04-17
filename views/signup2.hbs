@@ -1,0 +1,169 @@
+<link rel="stylesheet" type="text/css" href="/public/stylesheets/montserrat-font.css">
+<link rel="stylesheet" type="text/css" href="/public/stylesheets/material-design-iconic-font.min.css">
+<!-- Main Style Css -->
+<link rel="stylesheet" href="/public/stylesheets/style1.css" />
+
+<div class="form-v10">
+    <div class="page-content">
+        <div class="form-v10-content">
+
+            <form action="/signup_submit" enctype="multipart/form-data" onsubmit=" return verifyPassword()"
+                method="post">
+
+
+                <div class="form-left">
+                    <h2>General Infomation</h2>
+                    <div class="form-row">
+
+
+                    </div>
+                    <div class="form-group">
+                        <div class="form-row form-row-1">
+                            <input type="text" name="firstName" id="first_name" class="input-text"
+                                placeholder="First Name" required>
+                        </div>
+                        <div class="form-row form-row-2">
+                            <input type="text" name="lastName" id="last_name" class="input-text" placeholder="Last Name"
+                                required>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <input type="email" placeholder="Email" required>
+                    </div>
+                    <div class="form-row">
+                        <input type="password" name="password" class="company" id="company" placeholder="password"
+                            required>
+                        <input type="checkbox" onclick="Toggle()" class="form-check-input" id="exampleCheck1">
+                        <label class="form-check-label" for="exampleCheck1">Show
+                            password</label>
+
+
+                    </div>
+                    <div class="form-group">
+                        <div class="form-row form-row-3">
+                            <input type="password" name="pass2" class="business" id="business"
+                                placeholder="Confirmpassword" required>
+                        </div>
+                        <span id="message" style="color:red"> </span> <br><br>
+                    </div>
+                </div>
+                <div class="form-right">
+                    <h2>Personal Details</h2>
+                    <div class="form-row">
+                        <input type="text" name="Address" class="street" id="street" placeholder="Address" required>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="form-row form-row-1">
+                            <input type="text" name="postcode" class="zip" id="zip" placeholder="Postcode" required>
+                        </div>
+                        <div class="form-row form-row-2">
+                            <select name="course" required>
+                                <option selected disabled value="">course</option>
+                                <option value="Street">BCA</option>
+                                <option value="District">BSC,Computer Scince</option>
+                                <option value="City">BSC,Cyber forensic</option>
+                            </select>
+                            <span class="select-btn">
+                                <i class="zmdi zmdi-chevron-down"></i>
+                            </span>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <select name="gender">
+                            <option value="country">Gender</option>
+                            <option value="Vietnam">Male</option>
+                            <option value="Malaysia">Female</option>
+                            <option value="India">other</option>
+                        </select>
+                        <span class="select-btn">
+                            <i class="zmdi zmdi-chevron-down"></i>
+                        </span>
+                    </div>
+                    <div class="form-group">
+                        <div class="form-row form-row-1">
+                            <input type="text" name="code" class="code" id="code" value="+91">
+                        </div>
+                        <div class="form-row form-row-2">
+                            <input type="tel" maxlength="10" minlength="10" pattern="[1-9]{1}[0-9]{9}" name="mobile"
+                                class="phone" id="phone" placeholder="Phone Number" required>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <input type="date" name="dob" id="your_email" class="input-text" required>
+                    </div>
+                    <div class="form-checkbox">
+                        <label class="container">
+                            <p>I do accept the <a href="#" class="text">Terms and Conditions</a> of this site.</p>
+                            <input type="checkbox" name="checkbox">
+                            <span class="checkmark"></span>
+                        </label>
+                    </div>
+                    <div class="form-row-last">
+                        <button class="btn-success" type="submit">signup</button>
+                        <button class="btn-success" type="reset">reset</button>
+
+
+
+                    </div>
+                    <a class="d-block text-center mt-2 small" href="/">
+                        have an
+                        account? login</a>
+                </div>
+            </form>
+        </div>
+    </div>
+
+</div>
+
+<script type="text/javascript">
+
+
+
+
+
+
+
+
+    function Toggle() {
+        var temp = document.getElementById("pass");
+        if (temp.type === "password") {
+            temp.type = "text";
+        }
+        else {
+            temp.type = "password";
+        }
+    }
+
+    function verifyPassword() {
+        var pw2 = document.getElementById("pass2").value;
+        var pw = document.getElementById("pass").value;
+        //check empty password field  
+        if (pw == "") {
+            document.getElementById("message").innerHTML = "Fill the password ";
+            return false;
+        }
+        // check confrim passwords
+        if (pw != pw2) {
+            document.getElementById("message").innerHTML = "check the passwords ";
+            return false;
+        }
+        //minimum password length validation  
+        if (pw.length < 8) {
+            document.getElementById("message").innerHTML = "password length must be atleast 8 characters";
+            return false;
+        }
+
+        //maximum length of password validation  
+        if (pw.length > 15) {
+            document.getElementById("message").innerHTML = "Password length must not exceed 15 characters";
+            return false;
+        } else {
+            return confirm("are you sure want to submit");
+        }
+    }
+    function viewimage(event) {
+        document.getElementById('wizardPicturePreview').src = URL.createObjectURL(event.target.file[1])
+    }
+
+</script>
