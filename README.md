@@ -5,16 +5,18 @@ Then first command is" npm install "
 Second command is" npm start "
 Then open browser 
 
-localhost:3000 
-Localhost:3000/admin 
-Localhost:3000/manager 
+localhost:3000            (this is student)
+Localhost:3000/admin      (this is HOD)
+Localhost:3000/manager    (this manager)
 
 First you need to login in manager using email: Muhammednoufal@gmail.com
-Pass:noufal@6448
+Pass:noufal@12
 
-Then you need to add HOD after that you need to login 
+Then you need to add HOD 
+
+
 localhost:3000/admin
-And create admin account and login after that you need to add student 
-Then 
+And create admin account(HOD) and login 
+Then  ADD student 
 
 localhost:3000 and signup and login that's it 
