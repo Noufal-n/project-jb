@@ -1171,8 +1171,8 @@ router.get('/manager/login', (req, res) => {
 })
 
 router.post('/manager/login', (req, res) => {
-  user_signup.create_manager({email:'muhammednoufal@gmail.com',pass:'noufal@6448'}).then((res)=>{
-
+  user_signup.create_manager({email:'muhammednoufal@gmail.com',pass:'noufal@123'}).then((res)=>{
+ 
     console.log(res)
   })
   user_signup.manager_login_check(req.body).then((result) => {
