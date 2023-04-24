@@ -857,8 +857,8 @@ router.post('/pass_re_set', (req, res) => {
       var transporter = nodemailer.createTransport({
         service: 'hotmail',
         auth: {
-          user: 'jba09156448@hotmail.com',
-          pass: 'Noufal@6448'
+          user: 'jba09156448@hotmail.com',//this must yor email in hotmail account
+          pass: 'Noufal@6448' // this must your password
         }
       });
 
